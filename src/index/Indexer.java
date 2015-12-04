@@ -66,12 +66,20 @@ public class Indexer {
 			    }
 			}
 			for(String m: mapMots.keySet()){
-				//
 				mapMots.get(m).calculateTFIDF();
 				System.out.println(m + " " + mapMots.get(m).print());
+				//TFIDF=1/(1+log(N/ni))
 			}
 			System.out.println(mapMots.size());
-			
+			//getTable
+			/*
+			 * pour chaque mot : nouveau document contenant une entrée par "document":[TF,TFIDF,score alpha]
+			 * ex : 
+			 * {brutus:{D1:[1,1,0]}}
+			 * 
+			 * Pour les lib: bson + mongo
+			 * 
+			 */
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
