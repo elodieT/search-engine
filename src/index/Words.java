@@ -28,11 +28,13 @@ public class Words {
 		this.tf.add(1);
 	}
 	
-	public void calculateTFIDF(){
+	public void calculateTFIDF(int totalNumberOfDocs){
+		//TFIDF=1/(1+log(N/ni))
 		this.tfidf= new ArrayList <Integer>();
 		int len = this.tf.size();
-		for(Integer tfi: this.tf)
-		this.tfidf.add((int)(tfi*100/len));
+		for(Integer tfi: this.tf) {
+			this.tfidf.add((int) ((tfi * 100 )*( Math.log((double)(totalNumberOfDocs)/(double)(len)))));
+		}
 	}
 	
 	public String print(){
@@ -50,5 +52,9 @@ public class Words {
 		}
 		
 		return result;
+	}
+
+	public int numberOfDoc(){
+		return this.documents.size();
 	}
 }

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
+import com.mongodb.*;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
@@ -19,6 +20,7 @@ public class Indexer {
 	public void buildIndex(){
 		//avec Jsoup, doc.text() = doc.body().text() + doc.title()
 		try{
+			int nbTotDoc=0;
 			File folder = new File(corpusPath);
 			File[] listOfFiles = folder.listFiles();
 			File stopList = new File("./stopwords.txt");
@@ -32,7 +34,10 @@ public class Indexer {
 		
 			for (File file : listOfFiles) {
 			    if (file.isFile()) {
+					nbTotDoc++;
 					Document doc = Jsoup.parse(file, "UTF-8");
+					String filename = file.getAbsolutePath().toString().replace(folder.getAbsolutePath().toString(), "");
+					filename = filename.replaceAll("\\.|\\\\|/|html","");
 					//nettoyage du texte
 					String textePropre=doc.text();
 					for (String sw : stopWords) {
@@ -52,21 +57,22 @@ public class Indexer {
 							 newWord = newWord.substring(0, 7);
 						 }
 						 if(mapMots.get(newWord)!=null){
-							 if(mapMots.get(newWord).lastDoc().compareTo(file.getPath())==0){
+
+							 if(mapMots.get(newWord).lastDoc().compareTo(filename)==0){
 								 mapMots.get(newWord).incrementTFforLastDoc();
 							 }
 							 else{
-								 mapMots.get(newWord).addDoc(file.getPath());
+								 mapMots.get(newWord).addDoc(filename);
 							 }
 						}
 						 else{
-							 mapMots.put(newWord, new Words(file.getPath()));
+							 mapMots.put(newWord, new Words(filename));
 						 }
 					 }		
 			    }
 			}
 			for(String m: mapMots.keySet()){
-				mapMots.get(m).calculateTFIDF();
+				mapMots.get(m).calculateTFIDF(nbTotDoc);
 				System.out.println(m + " " + mapMots.get(m).print());
 				//TFIDF=1/(1+log(N/ni))
 			}
@@ -80,6 +86,21 @@ public class Indexer {
 			 * Pour les lib: bson + mongo
 			 * 
 			 */
+			MongoClient mongoClient = new MongoClient("localhost",27017);
+
+			DB db = mongoClient.getDB("inverseIndexDB");
+			DBCollection table = db.getCollection("mot");
+			for(String m: mapMots.keySet()) {
+				BasicDBObject doc = new BasicDBObject("word", m);
+				BasicDBList list = new BasicDBList();
+				for(int i=0; i<mapMots.get(m).numberOfDoc();i++){
+					doc.append(mapMots.get(m).documents.get(i),new BasicDBObject("tf",mapMots.get(m).tf.get(i))
+							.append("tfidf",mapMots.get(m).tfidf.get(i)));
+					list.add(mapMots.get(m).documents.get(i));
+				}
+				doc.append("documents",list);
+				table.insert(doc);
+			}
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
