@@ -26,6 +26,7 @@ public class Indexer {
 			File stopList = new File("./stopwords.txt");
 			ArrayList <String> stopWords = new ArrayList<String>();
 			HashMap <String,Words> mapMots = new HashMap <String,Words>();
+			HashMap<String,DocumentText> mapDocs=new HashMap<>();
 			Scanner scStopWords = new Scanner(stopList);
 			while(scStopWords.hasNext()){
 				stopWords.add(scStopWords.next());
@@ -35,9 +36,11 @@ public class Indexer {
 			for (File file : listOfFiles) {
 			    if (file.isFile()) {
 					nbTotDoc++;
+
 					Document doc = Jsoup.parse(file, "UTF-8");
 					String filename = file.getAbsolutePath().toString().replace(folder.getAbsolutePath().toString(), "");
 					filename = filename.replaceAll("\\.|\\\\|/|html","");
+					int nbMotTemp=0;
 					//nettoyage du texte
 					String textePropre=doc.text();
 					for (String sw : stopWords) {
@@ -50,9 +53,10 @@ public class Indexer {
 					 Scanner scanner = new Scanner(textePropre);
 					 scanner.useDelimiter(" |,|\\.|;|!|\\?|\\n|'");
 					 String newWord="";
-					
+
 					 while(scanner.hasNext()){
 						 newWord=scanner.next();
+						 nbMotTemp ++;
 						 if(newWord.length()>7){
 							 newWord = newWord.substring(0, 7);
 						 }
@@ -68,8 +72,10 @@ public class Indexer {
 						 else{
 							 mapMots.put(newWord, new Words(filename));
 						 }
-					 }		
-			    }
+					}
+					mapDocs.put(filename,new DocumentText(nbMotTemp));
+
+				}
 			}
 			for(String m: mapMots.keySet()){
 				mapMots.get(m).calculateTFIDF(nbTotDoc);
@@ -96,9 +102,25 @@ public class Indexer {
 					doc.append(mapMots.get(m).documents.get(i),new BasicDBObject("tf",mapMots.get(m).tf.get(i))
 							.append("tfidf",mapMots.get(m).tfidf.get(i)));
 					list.add(mapMots.get(m).documents.get(i));
+					for(String documentKey: mapDocs.keySet()){
+						if(mapMots.get(m).documents.get(i).compareTo(documentKey)==0){
+							mapDocs.get(documentKey).ajoutPourNormes(mapMots.get(m).tf.get(i),mapMots.get(m).tfidf.get(i));
+						}
+					}
+
 				}
-				doc.append("documents",list);
+				doc.append("documents", list);
 				table.insert(doc);
+			}
+
+			DBCollection docColl = db.getCollection("documents");
+			for (String doc : mapDocs.keySet()){
+				mapDocs.get(doc).sqrtPourNormes();
+				BasicDBObject newdoc = new BasicDBObject("document",doc);
+				newdoc.append("nbMots",mapDocs.get(doc).getNbMots());
+				newdoc.append("tfNorme",mapDocs.get(doc).getTFNorme());
+				newdoc.append("tfidfNorme",mapDocs.get(doc).getTFIDFNorme());
+				docColl.insert(newdoc);
 			}
 			mongoClient.close();
 			

@@ -33,7 +33,7 @@ public class Words {
 		this.tfidf= new ArrayList <Integer>();
 		int len = this.tf.size();
 		for(Integer tfi: this.tf) {
-			this.tfidf.add((int) ((tfi * 100 )*( Math.log((double)(totalNumberOfDocs)/(double)(len)))));
+			this.tfidf.add((int) ((tfi )*( Math.log((double)(totalNumberOfDocs)/(double)(len)))));
 		}
 	}
 	
