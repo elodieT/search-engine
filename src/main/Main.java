@@ -18,18 +18,20 @@ public class Main {
 
 	public static void main(String [] args){
 
-        Indexer ind = new Indexer("./CORPUS/test");
-		//ind.buildIndex();
-        MongoClient mongoClient = new MongoClient();
+        Indexer ind = new Indexer("./CORPUS");
+		ind.buildIndex();
+        /*MongoClient mongoClient = new MongoClient();
         DB db = mongoClient.getDB("inverseIndexDB");
         DBCollection table = db.getCollection("mot");
         Scanner sc = new Scanner(System.in);
         String entry = "";
         String modePoids="";
-        while(!entry.contentEquals("X")){
+        Boolean stop = false;
+        while(!stop){
             System.out.println("Choix de la méthode de pondération :");
             System.out.println("    Pour TFIDF : tapez '1'");
             System.out.println("    Pour TF : tapez '2'");
+            System.out.println("    Pour quitter : tapez 'X'");
             modePoids=sc.nextLine();
             switch (modePoids){
                 case "1":
@@ -40,6 +42,10 @@ public class Main {
                     System.out.println("C'est parti pour du TF");
                     modePoids="tf";
                     break;
+                case "X":
+                    System.out.println("Fin de la recherche ! A bientôt ! ");
+                    stop= true;
+                    break;
                 default:
                     System.err.println("Apprends à taper. Mode par défaut activé (tfidf)");
                     modePoids="tfidf";
@@ -48,6 +54,7 @@ public class Main {
             System.out.println("Choix de la méthode de tri de pertinence :");
             System.out.println("    Pour somme : tapez '1'");
             System.out.println("    Pour cosinus : tapez '2'");
+            System.out.println("    Pour quitter : tapez 'X'");
             String modePerti=sc.nextLine();
 
             switch (modePerti){
@@ -57,6 +64,10 @@ public class Main {
                 case "2":
                     System.out.println("C'est parti pour un COSINUS");
                     break;
+                case "X":
+                    System.out.println("Fin de la recherche ! A bientôt ! ");
+                    stop= true;
+                    break;
                 default:
                     System.err.println("Apprends à taper. Mode par défaut activé (somme)");
                     modePoids="1";
@@ -65,9 +76,10 @@ public class Main {
             entry= sc.nextLine();
             QueryProcessor query = new QueryProcessor(entry);
             query.processQuery(table,modePoids,modePerti);
+            mongoClient.close();
 
         }
-        sc.close();
+        sc.close();*/
 
 	}
 }

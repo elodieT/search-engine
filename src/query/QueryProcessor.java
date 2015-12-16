@@ -72,12 +72,12 @@ public class QueryProcessor {
                     for (int i=0;i<list.size();i++){
                         String docName=list.get(i).toString();
                         docsForWord.add(docName);
-                        int tfidfdoc = (Integer)((DBObject) (object.get(docsForWord.get(i)))).get(modePoids);
+                        int poids = (Integer)((DBObject) (object.get(docsForWord.get(i)))).get(modePoids);
                         if(map.get(docName)==null){
-                            map.put(docName,tfidfdoc ) ;
+                            map.put(docName,poids ) ;
                         }
                         else{
-                           map.put(docName,map.get(docName)+tfidfdoc);
+                           map.put(docName,map.get(docName)+poids);
                         }
                     }
 

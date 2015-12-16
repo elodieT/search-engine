@@ -73,8 +73,7 @@ public class Indexer {
 			}
 			for(String m: mapMots.keySet()){
 				mapMots.get(m).calculateTFIDF(nbTotDoc);
-				System.out.println(m + " " + mapMots.get(m).print());
-				//TFIDF=1/(1+log(N/ni))
+				//System.out.println(m + " " + mapMots.get(m).print());
 			}
 			System.out.println(mapMots.size());
 			//getTable
@@ -101,6 +100,7 @@ public class Indexer {
 				doc.append("documents",list);
 				table.insert(doc);
 			}
+			mongoClient.close();
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
