@@ -95,8 +95,8 @@ public class QueryProcessor {
             }
         });
         for (Object e : a) {
-            System.out.println(((Map.Entry<String, Integer>) e).getKey() + " : "
-                    + ((Map.Entry<String, Integer>) e).getValue());
+           /* System.out.println(((Map.Entry<String, Integer>) e).getKey() + " : "
+                    + ((Map.Entry<String, Integer>) e).getValue());*/
         }
         return map;
     }
@@ -179,8 +179,8 @@ public class QueryProcessor {
             }
         });
         for (Object e : a) {
-            System.out.println(((Map.Entry<String, Integer>) e).getKey() + " : "
-                    + ((Map.Entry<String, Integer>) e).getValue());
+            /*System.out.println(((Map.Entry<String, Integer>) e).getKey() + " : "
+                    + ((Map.Entry<String, Integer>) e).getValue());*/
         }
         return mapPropre;
     }

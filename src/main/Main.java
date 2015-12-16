@@ -18,8 +18,80 @@ public class Main {
 
 	public static void main(String [] args){
 
-        Indexer ind = new Indexer("./CORPUS");
+        /*Indexer ind = new Indexer("./CORPUS");
 		ind.buildIndex();
+		*/
+        //modeNormal();
+        modeEval();
+
+	}
+
+
+    public static void modeEval(){
+        HashMap<String,String> queries = new HashMap<>();
+        queries.put("qrelQ1.txt","personnes, Intouchables");
+        /*queries.put("qrelQ2.txt","lieu, naissance, Omar Sy");
+        queries.put("qrelQ3.txt","personnes, récompensées, Intouchables");
+        queries.put("qrelQ4.txt","palmarès, Globes de Cristal, 2012");
+        queries.put("qrelQ5.txt","membre, jury, Globes de Cristal");
+        queries.put("qrel6.txt","prix, Omar Sy, Globes de Cristal, 2012");
+        queries.put("qrelQ7.txt","lieu, Globes Cristal, 2012");
+        queries.put("qrelQ8.txt","prix, Omar Sy");
+        queries.put("qrelQ9.txt","acteurs, joué avec, Omar Sy");*/
+
+        File folder = new File("./qrels/test");
+        File[] listOfFiles = folder.listFiles();
+        MongoClient mongoClient = new MongoClient();
+        DB db = mongoClient.getDB("inverseIndexDB");
+        DBCollection table = db.getCollection("mot");
+
+        File fresults = new File("./results");
+        try {
+            for (File file : listOfFiles) {
+                if (file.isFile()) {
+                    QueryProcessor query = new QueryProcessor(queries.get(file.getName()));
+
+                    //lecture fichier
+                    HashMap<String, Integer> gold = new HashMap<>();
+                    Scanner sc = new Scanner(file);
+                    while(sc.hasNext()){
+                        String docName = sc.next().replace(".html", "");
+                        int docScore = (int)(10*Float.parseFloat(sc.next().replace(",",".")));
+                        gold.put(docName,docScore);
+                        System.out.println(docScore);
+                    }
+                    //tf Sum
+                    HashMap<String, Integer> tfsum = query.processQuerySomme(table, "tf");
+
+                    //tfidf Sum
+                    HashMap<String, Integer> tfidfsum = query.processQuerySomme(table, "tfidf");
+
+                    //tf cos
+                    HashMap<String, Integer> tfcos = query.processQueryCos(db, "tf");
+
+                    //tfidf cos
+                    HashMap<String, Integer> tfidfcos = query.processQueryCos(db, "tfidf");
+
+                    /*TODO :Calcul de Précision, Rappel, FMesure + les écrire dans le fichier résults
+                        sous la forme suivante pour chaque qrel (Fmesure pas forcément obligatoire)
+                        ------------------qrel1-------------
+                        tf-sum P:0.89975 R:0.36807 F:0.7525
+                        tfidf-sum P:0.89975 R:0.36807 F:0.7525
+                        tf-cos P:0.89975 R:0.36807 F:0.7525
+                        tfidf-cos P:0.89975 R:0.36807 F:0.7525
+                      */
+
+                }
+            }
+        }
+        catch(FileNotFoundException e){
+            e.printStackTrace();
+
+        }
+        mongoClient.close();
+    }
+
+    public static void modeNormal(){
         MongoClient mongoClient = new MongoClient();
         DB db = mongoClient.getDB("inverseIndexDB");
         DBCollection table = db.getCollection("mot");
@@ -85,5 +157,5 @@ public class Main {
         mongoClient.close();
         sc.close();
 
-	}
+    }
 }
