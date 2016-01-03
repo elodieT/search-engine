@@ -1,14 +1,13 @@
 package index;
 
-/**
- * Created by sony on 16/12/2015.
- */
 public class DocumentText {
     private int nbMots;
     private int sumTFCarre;
     private int sumTFIDFCarre;
+    private int sumLOCATIONWEIGHTCarre;
     private int TFNorme;
     private int TFIDFNorme;
+    private int LOCATIONWEIGHTNorme;
 
     /*public index.DocumentText(){
         nbMots=0;
@@ -22,14 +21,17 @@ public class DocumentText {
         sumTFIDFCarre=0;
     }
 
-    public void ajoutPourNormes(int tf, int tfidf){
+    public void ajoutPourNormes(int tf, int tfidf, int locationweight){
         this.sumTFCarre+=tf*tf;
         this.sumTFIDFCarre+=tfidf*tfidf;
+        this.sumLOCATIONWEIGHTCarre+=locationweight*locationweight;
+
     }
 
     public void sqrtPourNormes(){
         this.setTFNorme((int)(Math.sqrt((double)(sumTFCarre))));
         this.setTFIDFNorme((int)(Math.sqrt((double)(sumTFIDFCarre))));
+        this.setLOCATIONWEIGHTNorme((int)(Math.sqrt((double)(sumLOCATIONWEIGHTCarre))));
     }
 
     public int getNbMots() {
@@ -54,5 +56,12 @@ public class DocumentText {
 
     public void setTFIDFNorme(int TFIDFNorme) {
         this.TFIDFNorme = TFIDFNorme;
+    }
+    public int getLOCATIONWEIGHTNorme() {
+        return LOCATIONWEIGHTNorme;
+    }
+
+    public void setLOCATIONWEIGHTNorme(int LOCATIONWEIGHTNorme) {
+        this.LOCATIONWEIGHTNorme = LOCATIONWEIGHTNorme;
     }
 }
