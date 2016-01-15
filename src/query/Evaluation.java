@@ -21,14 +21,14 @@ public class Evaluation {
     public void modeEval() throws IOException {
         HashMap<String, String> queries = new HashMap<>();
         queries.put("qrelQ1.txt", "personnes, Intouchables");
-        queries.put("qrelQ2.txt","lieu, naissance, Omar Sy");
+        queries.put("qrelQ2.txt","lieu naissance, Omar Sy");
         queries.put("qrelQ3.txt","personnes, récompensées, Intouchables");
-        queries.put("qrelQ4.txt","palmarès, Globes de Cristal, 2012");
-        queries.put("qrelQ5.txt","membre, jury, Globes de Cristal");
-        queries.put("qrelQ6.txt","prix, Omar Sy, Globes de Cristal, 2012");
-        queries.put("qrelQ7.txt","lieu, Globes Cristal, 2012");
+        queries.put("qrelQ4.txt","palmarès, Globes de Cristal 2012");
+        queries.put("qrelQ5.txt","membre, jury, Globes de Cristal 2012");
+        queries.put("qrelQ6.txt","prix, Omar Sy, Globes de Cristal 2012");
+        queries.put("qrelQ7.txt","lieu, Globes de Cristal 2012");
         queries.put("qrelQ8.txt","prix, Omar Sy");
-        queries.put("qrelQ9.txt","acteurs, joué avec, Omar Sy");
+        queries.put("qrelQ9.txt","acteur, joué avec, Omar Sy");
 
         File[] listOfFiles = queryFolder.listFiles();
 

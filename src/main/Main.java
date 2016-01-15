@@ -7,6 +7,8 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import query.Evaluation;
 import query.QueryProcessor;
+import sparqlclient.Reformulator;
+import sparqlclient.SparqlClient;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -23,13 +25,17 @@ public class Main {
      /*   Indexer ind = new Indexer("./CORPUS");
         ind.buildIndex();*/
        // modeNormal();
-	try {
+	/*try {
 			Evaluation eval = new Evaluation("./qrels","./results.txt");
             eval.modeEval();
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
+
+        SparqlClient sc = new SparqlClient("localhost:8080/space");
+        Reformulator ref = new Reformulator(sc);
+        ref.reformulate("Omar Sy, prix");
 
     }
 
