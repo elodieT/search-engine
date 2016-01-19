@@ -35,7 +35,7 @@ public class Main {
 
         /*SparqlClient sc = new SparqlClient("localhost:8080/space");
         Reformulator ref = new Reformulator(sc);
-        ref.reformulate("Omar Sy, prix");*/
+        ref.reformulate("personnes, Intouchables");*/
 
     }
 

@@ -1,77 +1,77 @@
 --------qrelQ1.txt--------
 -------- S?rie sur les 5 premiers ?l?ments --------
 
-tf-sum : P : 0.6 R : 0.04477612 Fm : 0.08333333
+tf-sum : P : 0.8 R : 0.05970149 Fm : 0.11111111
 tfidf-sum : P :0.6 R : 0.04477612 Fm : 0.08333333
 locationweight sum : P :0.6 R : 0.04477612 Fm : 0.08333333
 
-tf-cos P : 0.8 R : 0.05970149 Fm : 0.11111111
-tfidf-cosP : 0.8 R : 0.05970149 Fm : 0.11111111
-locationweight-cos : P : 0.8 R : 0.05970149 Fm : 0.11111111
+tf-cos P : 0.6 R : 0.04477612 Fm : 0.08333333
+tfidf-cosP : 0.6 R : 0.04477612 Fm : 0.08333333
+locationweight-cos : P : 0.6 R : 0.04477612 Fm : 0.08333333
 
-tf-sumPonde P : 0.6 R : 0.04477612 Fm : 0.08333333
+tf-sumPonde P : 1.0 R : 0.07462686 Fm : 0.13888888
 tfidf-sumPondeP : 0.6 R : 0.04477612 Fm : 0.08333333
 locationweight-sumPonde : P : 0.6 R : 0.04477612 Fm : 0.08333333
 
 
 -------- S?rie sur les 10 premiers ?l?ments --------
 
-tf-sum : P : 0.8 R : 0.11940298 Fm : 0.20779221
+tf-sum : P : 0.7 R : 0.104477614 Fm : 0.18181819
 tfidf-sum : P :0.8 R : 0.11940298 Fm : 0.20779221
-locationweight sum : P :0.7 R : 0.104477614 Fm : 0.18181819
+locationweight sum : P :0.8 R : 0.11940298 Fm : 0.20779221
 
 tf-cos P : 0.6 R : 0.08955224 Fm : 0.15584415
-tfidf-cosP : 0.8 R : 0.11940298 Fm : 0.20779221
-locationweight-cos : P : 0.9 R : 0.13432837 Fm : 0.23376624
+tfidf-cosP : 0.7 R : 0.104477614 Fm : 0.18181819
+locationweight-cos : P : 0.7 R : 0.104477614 Fm : 0.18181819
 
-tf-sumPonde P : 0.8 R : 0.11940298 Fm : 0.20779221
-tfidf-sumPondeP : 0.8 R : 0.11940298 Fm : 0.20779221
-locationweight-sumPonde : P : 0.7 R : 0.104477614 Fm : 0.18181819
+tf-sumPonde P : 0.6 R : 0.08955224 Fm : 0.15584415
+tfidf-sumPondeP : 0.7 R : 0.104477614 Fm : 0.18181819
+locationweight-sumPonde : P : 0.8 R : 0.11940298 Fm : 0.20779221
 
 
 -------- S?rie sur les 25 premiers ?l?ments --------
 
-tf-sum : P : 0.68 R : 0.25373134 Fm : 0.36956522
-tfidf-sum : P :0.8 R : 0.29850745 Fm : 0.43478262
-locationweight sum : P :0.72 R : 0.26865673 Fm : 0.39130437
+tf-sum : P : 0.72 R : 0.26865673 Fm : 0.39130437
+tfidf-sum : P :0.68 R : 0.25373134 Fm : 0.36956522
+locationweight sum : P :0.64 R : 0.23880596 Fm : 0.3478261
 
 tf-cos P : 0.76 R : 0.2835821 Fm : 0.4130435
-tfidf-cosP : 0.84 R : 0.31343284 Fm : 0.45652172
-locationweight-cos : P : 0.84 R : 0.31343284 Fm : 0.45652172
+tfidf-cosP : 0.76 R : 0.2835821 Fm : 0.4130435
+locationweight-cos : P : 0.76 R : 0.2835821 Fm : 0.4130435
 
-tf-sumPonde P : 0.68 R : 0.25373134 Fm : 0.36956522
-tfidf-sumPondeP : 0.72 R : 0.26865673 Fm : 0.39130437
-locationweight-sumPonde : P : 0.76 R : 0.2835821 Fm : 0.4130435
+tf-sumPonde P : 0.72 R : 0.26865673 Fm : 0.39130437
+tfidf-sumPondeP : 0.76 R : 0.2835821 Fm : 0.4130435
+locationweight-sumPonde : P : 0.72 R : 0.26865673 Fm : 0.39130437
 
 
 -------- S?rie sur les 50 premiers ?l?ments --------
 
-tf-sum : P : 0.72 R : 0.53731346 Fm : 0.61538464
-tfidf-sum : P :0.68 R : 0.5074627 Fm : 0.58119655
-locationweight sum : P :0.68 R : 0.5074627 Fm : 0.58119655
+tf-sum : P : 0.76 R : 0.5671642 Fm : 0.6495727
+tfidf-sum : P :0.74 R : 0.5522388 Fm : 0.63247865
+locationweight sum : P :0.72 R : 0.53731346 Fm : 0.61538464
 
-tf-cos P : 0.7 R : 0.52238804 Fm : 0.5982906
-tfidf-cosP : 0.66 R : 0.49253732 Fm : 0.5641026
-locationweight-cos : P : 0.64 R : 0.47761193 Fm : 0.5470086
+tf-cos P : 0.74 R : 0.5522388 Fm : 0.63247865
+tfidf-cosP : 0.72 R : 0.53731346 Fm : 0.61538464
+locationweight-cos : P : 0.78 R : 0.58208954 Fm : 0.6666666
 
-tf-sumPonde P : 0.7 R : 0.52238804 Fm : 0.5982906
-tfidf-sumPondeP : 0.7 R : 0.52238804 Fm : 0.5982906
-locationweight-sumPonde : P : 0.66 R : 0.49253732 Fm : 0.5641026
+tf-sumPonde P : 0.78 R : 0.58208954 Fm : 0.6666666
+tfidf-sumPondeP : 0.74 R : 0.5522388 Fm : 0.63247865
+locationweight-sumPonde : P : 0.74 R : 0.5522388 Fm : 0.63247865
 
 
 -------- S?rie sur les 100 premiers ?l?ments --------
 
-tf-sum : P : 0.62 R : 0.92537314 Fm : 0.74251497
-tfidf-sum : P :0.52 R : 0.7761194 Fm : 0.62275445
-locationweight sum : P :0.53 R : 0.7910448 Fm : 0.6347305
+tf-sum : P : 0.65 R : 0.9701493 Fm : 0.7784431
+tfidf-sum : P :0.62 R : 0.92537314 Fm : 0.74251497
+locationweight sum : P :0.64 R : 0.95522386 Fm : 0.76646703
 
-tf-cos P : 0.6 R : 0.8955224 Fm : 0.71856284
-tfidf-cosP : 0.34 R : 0.5074627 Fm : 0.40718564
-locationweight-cos : P : 0.34 R : 0.5074627 Fm : 0.40718564
+tf-cos P : 0.63 R : 0.9402985 Fm : 0.75449103
+tfidf-cosP : 0.51 R : 0.76119405 Fm : 0.61077845
+locationweight-cos : P : 0.57 R : 0.8507463 Fm : 0.6826347
 
-tf-sumPonde P : 0.62 R : 0.92537314 Fm : 0.74251497
-tfidf-sumPondeP : 0.52 R : 0.7761194 Fm : 0.62275445
-locationweight-sumPonde : P : 0.53 R : 0.7910448 Fm : 0.6347305
+tf-sumPonde P : 0.66 R : 0.98507464 Fm : 0.7904192
+tfidf-sumPondeP : 0.63 R : 0.9402985 Fm : 0.75449103
+locationweight-sumPonde : P : 0.65 R : 0.9701493 Fm : 0.7784431
 
 
 --------qrelQ2.txt--------
@@ -153,75 +153,75 @@ locationweight-sumPonde : P : 0.24 R : 1.0 Fm : 0.38709676
 --------qrelQ3.txt--------
 -------- S?rie sur les 5 premiers ?l?ments --------
 
-tf-sum : P : 0.4 R : 0.039215688 Fm : 0.071428575
-tfidf-sum : P :0.2 R : 0.019607844 Fm : 0.035714287
-locationweight sum : P :0.6 R : 0.05882353 Fm : 0.10714286
+tf-sum : P : 0.8 R : 0.078431375 Fm : 0.14285715
+tfidf-sum : P :0.8 R : 0.078431375 Fm : 0.14285715
+locationweight sum : P :0.8 R : 0.078431375 Fm : 0.14285715
 
-tf-cos P : 0.4 R : 0.039215688 Fm : 0.071428575
+tf-cos P : 0.6 R : 0.05882353 Fm : 0.10714286
 tfidf-cosP : 0.6 R : 0.05882353 Fm : 0.10714286
-locationweight-cos : P : 0.8 R : 0.078431375 Fm : 0.14285715
+locationweight-cos : P : 0.6 R : 0.05882353 Fm : 0.10714286
 
-tf-sumPonde P : 0.4 R : 0.039215688 Fm : 0.071428575
-tfidf-sumPondeP : 0.2 R : 0.019607844 Fm : 0.035714287
-locationweight-sumPonde : P : 0.4 R : 0.039215688 Fm : 0.071428575
+tf-sumPonde P : 0.6 R : 0.05882353 Fm : 0.10714286
+tfidf-sumPondeP : 0.8 R : 0.078431375 Fm : 0.14285715
+locationweight-sumPonde : P : 0.8 R : 0.078431375 Fm : 0.14285715
 
 
 -------- S?rie sur les 10 premiers ?l?ments --------
 
-tf-sum : P : 0.5 R : 0.09803922 Fm : 0.16393442
-tfidf-sum : P :0.5 R : 0.09803922 Fm : 0.16393442
-locationweight sum : P :0.5 R : 0.09803922 Fm : 0.16393442
+tf-sum : P : 0.6 R : 0.11764706 Fm : 0.19672132
+tfidf-sum : P :0.7 R : 0.13725491 Fm : 0.2295082
+locationweight sum : P :0.8 R : 0.15686275 Fm : 0.2622951
 
 tf-cos P : 0.5 R : 0.09803922 Fm : 0.16393442
 tfidf-cosP : 0.7 R : 0.13725491 Fm : 0.2295082
 locationweight-cos : P : 0.8 R : 0.15686275 Fm : 0.2622951
 
 tf-sumPonde P : 0.6 R : 0.11764706 Fm : 0.19672132
-tfidf-sumPondeP : 0.5 R : 0.09803922 Fm : 0.16393442
-locationweight-sumPonde : P : 0.6 R : 0.11764706 Fm : 0.19672132
+tfidf-sumPondeP : 0.6 R : 0.11764706 Fm : 0.19672132
+locationweight-sumPonde : P : 0.7 R : 0.13725491 Fm : 0.2295082
 
 
 -------- S?rie sur les 25 premiers ?l?ments --------
 
-tf-sum : P : 0.56 R : 0.27450982 Fm : 0.36842108
-tfidf-sum : P :0.56 R : 0.27450982 Fm : 0.36842108
-locationweight sum : P :0.6 R : 0.29411766 Fm : 0.39473686
+tf-sum : P : 0.6 R : 0.29411766 Fm : 0.39473686
+tfidf-sum : P :0.48 R : 0.23529412 Fm : 0.31578946
+locationweight sum : P :0.52 R : 0.25490198 Fm : 0.34210524
 
-tf-cos P : 0.56 R : 0.27450982 Fm : 0.36842108
-tfidf-cosP : 0.6 R : 0.29411766 Fm : 0.39473686
-locationweight-cos : P : 0.56 R : 0.27450982 Fm : 0.36842108
+tf-cos P : 0.64 R : 0.3137255 Fm : 0.42105263
+tfidf-cosP : 0.68 R : 0.33333334 Fm : 0.44736844
+locationweight-cos : P : 0.68 R : 0.33333334 Fm : 0.44736844
 
-tf-sumPonde P : 0.52 R : 0.25490198 Fm : 0.34210524
-tfidf-sumPondeP : 0.64 R : 0.3137255 Fm : 0.42105263
-locationweight-sumPonde : P : 0.6 R : 0.29411766 Fm : 0.39473686
+tf-sumPonde P : 0.56 R : 0.27450982 Fm : 0.36842108
+tfidf-sumPondeP : 0.56 R : 0.27450982 Fm : 0.36842108
+locationweight-sumPonde : P : 0.56 R : 0.27450982 Fm : 0.36842108
 
 
 -------- S?rie sur les 50 premiers ?l?ments --------
 
-tf-sum : P : 0.54 R : 0.5294118 Fm : 0.53465354
-tfidf-sum : P :0.54 R : 0.5294118 Fm : 0.53465354
-locationweight sum : P :0.48 R : 0.47058824 Fm : 0.47524753
+tf-sum : P : 0.6 R : 0.5882353 Fm : 0.59405947
+tfidf-sum : P :0.56 R : 0.54901963 Fm : 0.55445546
+locationweight sum : P :0.54 R : 0.5294118 Fm : 0.53465354
 
-tf-cos P : 0.48 R : 0.47058824 Fm : 0.47524753
-tfidf-cosP : 0.5 R : 0.49019608 Fm : 0.49504948
-locationweight-cos : P : 0.5 R : 0.49019608 Fm : 0.49504948
+tf-cos P : 0.6 R : 0.5882353 Fm : 0.59405947
+tfidf-cosP : 0.54 R : 0.5294118 Fm : 0.53465354
+locationweight-cos : P : 0.54 R : 0.5294118 Fm : 0.53465354
 
-tf-sumPonde P : 0.56 R : 0.54901963 Fm : 0.55445546
-tfidf-sumPondeP : 0.54 R : 0.5294118 Fm : 0.53465354
-locationweight-sumPonde : P : 0.52 R : 0.50980395 Fm : 0.51485145
+tf-sumPonde P : 0.58 R : 0.5686275 Fm : 0.5742574
+tfidf-sumPondeP : 0.56 R : 0.54901963 Fm : 0.55445546
+locationweight-sumPonde : P : 0.62 R : 0.60784316 Fm : 0.6138614
 
 
 -------- S?rie sur les 100 premiers ?l?ments --------
 
 tf-sum : P : 0.46 R : 0.9019608 Fm : 0.6092715
-tfidf-sum : P :0.45 R : 0.88235295 Fm : 0.5960265
-locationweight sum : P :0.45 R : 0.88235295 Fm : 0.5960265
+tfidf-sum : P :0.44 R : 0.8627451 Fm : 0.5827815
+locationweight sum : P :0.41 R : 0.8039216 Fm : 0.54304636
 
 tf-cos P : 0.46 R : 0.9019608 Fm : 0.6092715
-tfidf-cosP : 0.33 R : 0.64705884 Fm : 0.43708608
-locationweight-cos : P : 0.3 R : 0.5882353 Fm : 0.39735103
+tfidf-cosP : 0.39 R : 0.7647059 Fm : 0.5165563
+locationweight-cos : P : 0.41 R : 0.8039216 Fm : 0.54304636
 
-tf-sumPonde P : 0.46 R : 0.9019608 Fm : 0.6092715
+tf-sumPonde P : 0.48 R : 0.9411765 Fm : 0.6357616
 tfidf-sumPondeP : 0.45 R : 0.88235295 Fm : 0.5960265
 locationweight-sumPonde : P : 0.45 R : 0.88235295 Fm : 0.5960265
 

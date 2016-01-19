@@ -28,25 +28,34 @@ public class Reformulator {
         ArrayList<String> tabURIEntry = new ArrayList<>();
         while(scanner.hasNext()){
             lab = scanner.next();
-           query =  "SELECT ?lab ?x WHERE{" +
+           query =  "SELECT ?x WHERE{" +
                     "{?x rdfs:label \""+lab+"\"}" +
-                   "UNION{?x rdfs:label \""+lab+"\"@fr}" +
-                   "?x rdfs:label ?lab." +
-                   "FILTER(?lab !=\""+lab+"\")" +
-                   "FILTER(?lab !=\""+lab+"\"@fr)" +
-                   "FILTER(langMatches(lang(?lab),\"fr\"))}";
+                   "UNION{?x rdfs:label \""+lab+"\"@fr}}";
             Iterable<Map<String, String>> results = sc.select(prefix +query);
             for (Map<String, String> result : results) {
-                //System.out.println(result.get("lab"));
-                out += ", "+result.get("lab");
                 if (!tabURIEntry.contains(result.get("x"))){
                     tabURIEntry.add(result.get("x"));
                 }
             }
+            query =  "SELECT ?lab WHERE{" +
+                    "{?x rdfs:label \""+lab+"\"}" +
+                    "UNION{?x rdfs:label \""+lab+"\"@fr}" +
+                    "?x rdfs:label ?lab." +
+                    "FILTER(?lab !=\""+lab+"\")" +
+                    "FILTER(?lab !=\""+lab+"\"@fr)" +
+                    "FILTER(langMatches(lang(?lab),\"fr\"))}";
+            Iterable<Map<String, String>> results2 = sc.select(prefix +query);
+            for (Map<String, String> result : results2) {
+                //System.out.println(result.get("lab"));
+                out += ", "+result.get("lab");
+            }
         }
+        System.out.println(out);
         if(tabURIEntry.size()==2){
             String A=tabURIEntry.get(0);
             String B = tabURIEntry.get(1);
+            //System.out.println(A);
+            //System.out.println(B);
             query = " SELECT DISTINCT ?lx WHERE{" +
                     "{<"+A+"> <"+ B+ "> ?x}" +
                     "UNION{<"+B+"> <"+ A+"> ?x}" +
