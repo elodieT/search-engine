@@ -2,6 +2,8 @@ package query;
 
 import java.util.HashMap;
 import com.mongodb.*;
+import sparqlclient.Reformulator;
+
 import javax.management.Query;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -11,9 +13,12 @@ import java.util.*;
 public class QueryProcessor {
     ArrayList<String> wordsQuery;
 
-    public QueryProcessor(String query) {
+    public QueryProcessor(String query, boolean reform, Reformulator ref) {
         this.wordsQuery = new ArrayList<>();
         try {
+            if(reform){
+                query = ref.reformulate(query);
+            }
             String delimiter = " |,|\\.|;|\\?|\\n|'|\\-|:|\\!|_|\\(|\\)|%|°|\\+|&|\"|\\#|\\{|\\}|=|\\[|\\]";
             File stopList = new File("./stopwords.txt");
             ArrayList<String> stopWords = new ArrayList<String>();

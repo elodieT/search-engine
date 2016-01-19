@@ -25,23 +25,23 @@ public class Main {
      /*   Indexer ind = new Indexer("./CORPUS");
         ind.buildIndex();*/
        // modeNormal();
-	/*try {
-			Evaluation eval = new Evaluation("./qrels","./results.txt");
-            eval.modeEval();
+	try {
+			Evaluation eval = new Evaluation("./qrels","./resultsSparql.txt");
+            eval.modeEval(true);
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 
-        SparqlClient sc = new SparqlClient("localhost:8080/space");
+        /*SparqlClient sc = new SparqlClient("localhost:8080/space");
         Reformulator ref = new Reformulator(sc);
-        ref.reformulate("Omar Sy, prix");
+        ref.reformulate("Omar Sy, prix");*/
 
     }
 
 
 
-    public static void modeNormal() throws UnknownHostException {
+    public static void modeNormal(Reformulator ref) throws UnknownHostException {
         MongoClient mongoClient = new MongoClient();
         DB db = mongoClient.getDB("inverseIndexDB");
         DBCollection table = db.getCollection("mot");
@@ -99,7 +99,7 @@ public class Main {
                 }
                 System.out.println("Entrez votre requête : ");
                 entry = sc.nextLine();
-                QueryProcessor query = new QueryProcessor(entry);
+                QueryProcessor query = new QueryProcessor(entry,true, ref);
                 switch (modePerti) {
                     case "1":
                         query.processQuerySomme(table, modePoids);

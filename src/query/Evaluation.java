@@ -3,6 +3,8 @@ package query;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.MongoClient;
+import sparqlclient.Reformulator;
+import sparqlclient.SparqlClient;
 
 import java.io.*;
 import java.util.*;
@@ -18,7 +20,9 @@ public class Evaluation {
         this.resultFile = new File(resultFile);
     }
 
-    public void modeEval() throws IOException {
+    public void modeEval(boolean reform) throws IOException {
+        SparqlClient scl = new SparqlClient("localhost:8080/space");
+        Reformulator ref = new Reformulator(scl);
         HashMap<String, String> queries = new HashMap<>();
         queries.put("qrelQ1.txt", "personnes, Intouchables");
         queries.put("qrelQ2.txt","lieu naissance, Omar Sy");
@@ -44,7 +48,7 @@ public class Evaluation {
                     docsPertForQrel.clear();
                     System.out.println(file.toString());
                     System.out.println(queries.get(file.getName()));
-                    QueryProcessor query = new QueryProcessor(queries.get(file.getName()));
+                    QueryProcessor query = new QueryProcessor(queries.get(file.getName()), reform,ref);
                     // lecture fichier
                     HashMap<String, Integer> gold = new HashMap<>();
                     Scanner sc = new Scanner(file);
