@@ -44,8 +44,29 @@ public class Reformulator {
                 }
             }
         }
-         query = " SELECT ";
-        System.out.println(tabURIEntry.size());
+        if(tabURIEntry.size()==2){
+            String A=tabURIEntry.get(0);
+            String B = tabURIEntry.get(1);
+            query = " SELECT DISTINCT ?lx WHERE{" +
+                    "{<"+A+"> <"+ B+ "> ?x}" +
+                    "UNION{<"+B+"> <"+ A+"> ?x}" +
+                    "UNION{<"+A+"> ?x <"+ B+">}" +
+                    "UNION{<"+B+"> ?x <"+ A+">}" +
+                    "UNION{ ?x <"+A+"> <"+B+">}" +
+                    "UNION{ ?x <"+B+"> <"+A+">}" +
+                    "UNION{<"+A +"> ?p ?x." +
+                    "?x a <"+B+">}" +
+                    "UNION{<"+B+"> ?p ?x." +
+                    "?x a <"+A+">}" +
+                    "?x rdfs:label ?lx." +
+                    "}";
+            Iterable<Map<String, String>> results = sc.select(prefix +query);
+            for (Map<String, String> result : results) {
+                //System.out.println(result.get("lab"));
+                out += ", "+result.get("lx");
+            }
+        }
+
 
 
        /* */
